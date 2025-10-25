@@ -6,9 +6,9 @@ const PORT = 3000;
 
 // Helper to parse the request body
 const getRequestBody = async(req) => {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         let body = '';
-        req.on('data', chunk => data += chunk.toString());
+        req.on('data', chunk => body += chunk.toString());
         req.on('end', () => {
             try {
                 resolve(body ? JSON.parse(body) : {});
@@ -19,7 +19,7 @@ const getRequestBody = async(req) => {
     })
 }
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async(req, res) => {
     const method = req.method;
     const parsedUrl = url.parse(req.url);
     const { pathname, query } = parsedUrl;
@@ -39,7 +39,7 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify(results));
     } else if (method === 'POST' && pathname === '/expenses'){
         try {
-            const body = getRequestBody(req);
+            const body = await getRequestBody(req);
             const { title, category, amount } = body;
             const result = createExpense(title, category, amount );
             res.writeHead(result.success ? 201 : 400);
@@ -51,7 +51,7 @@ const server = http.createServer((req, res) => {
     } else if(method === 'PUT' && pathname.startsWith('/expenses/')){
         const id = pathname.split('/')[2];
         try {
-            const body = getRequestBody(req);
+            const body = await getRequestBody(req);
             const result = updateExpense(id, body);
             res.writeHead(result.success ? 200 : 400);
             res.end(JSON.stringify(result));

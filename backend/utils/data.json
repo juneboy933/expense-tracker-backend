@@ -1,27 +1,20 @@
 {
   "expenses": [
     {
-      "id": 1,
-      "title": "Lunch at Java",
-      "category": "food",
-      "amount": 1200,
-      "date": "2025-10-25T07:24:19.438Z",
-      "updatedAt": "Sat Oct 25 2025"
+      "id": "142365b2-61e4-4f2e-9243-95fc92bfdb49",
+      "title": "Trip to Maasai Mara",
+      "category": "Travel",
+      "amount": 1000,
+      "createdAt": "2025-10-25T16:31:09.711Z",
+      "updatedAt": null
     },
     {
-      "id": 2,
-      "title": "Dinner at Kempiski VillaRosa",
-      "category": "food",
-      "amount": "4500",
-      "date": "2025-10-25T07:25:24.781Z",
-      "updatedAt": "Sat Oct 25 2025"
-    },
-    {
-      "id": 3,
-      "title": "Shopping at Carrefour - Ngong Rd",
-      "category": "Clothes",
+      "id": "40e592b9-8398-4d0b-bd2c-46ddcf13ae01",
+      "title": "Lunch at Kempiski Villa Rosa",
+      "category": "Food",
       "amount": 10000,
-      "date": "Sat Oct 25 2025"
+      "createdAt": "2025-10-25T16:34:38.197Z",
+      "updatedAt": "2025-10-25T16:35:44.087Z"
     }
   ]
 }
